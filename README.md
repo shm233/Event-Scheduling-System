@@ -1,2 +1,2 @@
-# Event-Management-System
-Event Management System
+# Event-Scheduling-System
+Event Scheduling System
