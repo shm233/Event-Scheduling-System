@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "event_scheduling_system/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "event_scheduling_system/wsgi.py"
+    }
+  ]
+}
