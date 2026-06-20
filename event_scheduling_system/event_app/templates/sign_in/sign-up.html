@@ -1,0 +1,46 @@
+{% extends 'master/base.html' %}
+
+{% block body %}
+  <body>
+    {% include 'master/message.html' %}
+    <h1>Sign | Up</h1>
+    <h3>Please Fill Up This Form</h3>
+    <div class="container">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" id="exampleInputPassword1" placeholder="Enter your Username" required />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email" required />
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Full Name</label>
+          <input type="text" name="full_name" class="form-control" id="exampleInputPassword1" placeholder="Enter Full Name" required />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Phone Number</label>
+          <input type="tel" name="phone_number" class="form-control" id="exampleInputPassword1" placeholder="Provide Your Contact No." required />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Provide Password" required />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+          <input type="password" name="confirm_password" class="form-control" id="exampleInputPassword1" placeholder="Confirm your password" required />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <p>Already have an Account?</p>
+    <a href="{% url 'sign_in' %}" class="btn btn-info">Log-in to Account</a>
+  </body>
+{% endblock %}

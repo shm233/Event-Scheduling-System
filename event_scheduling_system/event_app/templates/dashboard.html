@@ -1,0 +1,33 @@
+{% extends 'master/base.html' %}
+
+{% block body %}
+  <body>
+    <form action="" method="GET">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="inputPassword6" class="col-form-label">Search Event</label>
+        </div>
+        <input type="text" name="search" class="form-control" id="exampleInputPassword1" placeholder="Search by Title, Type or Location" />
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="{% url 'dash_board' %}" class="btn btn-danger">Clear</a>
+      </div>
+    </form>
+    {% include 'master/message.html' %}
+    <div class="row justify-content-md-center">
+      {% for e in events %}
+        <div class="card" style="width: 18rem;">
+          <img src="/{{ e.event_image }}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ e.event_title }}</h5>
+            <p class="card-text">{{ e.event_description }}</p>
+            <p class="card-text">{{ e.event_date }}</p>
+            <p class="card-text">{{ e.event_type }}</p>
+            <a href="{% url 'individual_event' e.id %}" class="btn btn-primary">See Event</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </body>
+{% endblock %}

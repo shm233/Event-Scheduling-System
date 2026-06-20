@@ -1,0 +1,61 @@
+{% extends 'master/base.html' %}
+
+{% block body %}
+  <body>
+    {% include 'master/message.html' %}
+    <h1>Add | Event</h1>
+    <h3>Please Fill Up This Form</h3>
+    <div class="container">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Title</label>
+          <input type="text" name="title" class="form-control" id="exampleInputPassword1" placeholder="Enter your event title" required />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Event Type</label>
+          <select class="form-select" name="type" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="Conference">Conference</option>
+            <option value="Concert">Concert</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Graduation">Graduation</option>
+            <option value="Birthday">Birthday</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Event Description</label>
+          <textarea name="description" class="form-control" id="exampleFormControlTextarea1" placeholder="Tell us about your event" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Date</label>
+          <input type="date" name="date" class="form-control" id="exampleInputPassword1" required />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Status</label>
+          <select name="status" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="Not_Started">Not Started</option>
+            <option value="In_Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Location</label>
+          <input type="text" name="location" class="form-control" id="exampleInputPassword1" placeholder="Event City" required />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Picture</label>
+          <input type="file" name="photo" class="form-control" id="exampleInputPassword1" required />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <p>Already have an Account?</p>
+    <a href="{% url 'sign_in' %}" class="btn btn-info">Log-in to Account</a>
+  </body>
+{% endblock %}
